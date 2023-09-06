@@ -603,7 +603,7 @@
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseExample3"
-              aria-expanded="false"
+              aria-expanded="true"
               aria-controls="collapseExample"
             >
               Interview
@@ -624,6 +624,28 @@
         </div>
       </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const collapseButtons = document.querySelectorAll(
+        '[data-bs-toggle="collapse"]'
+      );
+
+      collapseButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // 获取与按钮关联的折叠目标
+          const targetId = button.getAttribute("data-bs-target");
+          const targetCollapse = document.querySelector(targetId);
+
+          // 关闭所有折叠内容
+          const allCollapses = document.querySelectorAll(".collapse");
+          allCollapses.forEach((collapse) => {
+            if (collapse !== targetCollapse) {
+              collapse.classList.remove("show");
+            }
+          });
+        });
+      });
+    </script>
 
     <!-- successstory -->
     <section id="successstory" class="p-5 bg-primary">
